@@ -43,7 +43,15 @@ const DownloadSection = () => {
                 variant="hero" 
                 size="xl" 
                 className="group"
-                onClick={() => window.location.href = '/login'}
+                onClick={() => {
+                  // Create a mock download for demo purposes
+                  const link = document.createElement('a');
+                  link.href = '#';
+                  link.download = 'FirmFence-v1.0-Windows.exe';
+                  link.click();
+                  // Show a toast notification
+                  alert('Download would start here. This is a demo version.');
+                }}
               >
                 <Download className="mr-2 h-6 w-6 group-hover:animate-bounce" />
                 Download FirmFence v1.0

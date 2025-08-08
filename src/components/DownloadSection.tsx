@@ -39,7 +39,12 @@ const DownloadSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button variant="hero" size="xl" className="group">
+              <Button 
+                variant="hero" 
+                size="xl" 
+                className="group"
+                onClick={() => window.location.href = '/login'}
+              >
                 <Download className="mr-2 h-6 w-6 group-hover:animate-bounce" />
                 Download FirmFence v1.0
               </Button>

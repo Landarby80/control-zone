@@ -44,13 +44,21 @@ const DownloadSection = () => {
                 size="xl" 
                 className="group"
                 onClick={() => {
-                  // Create a mock download for demo purposes
+                  // Create a mock download with a blob
+                  const mockFileContent = 'This is a demo FirmFence installer file.';
+                  const blob = new Blob([mockFileContent], { type: 'application/octet-stream' });
+                  const url = URL.createObjectURL(blob);
+                  
                   const link = document.createElement('a');
-                  link.href = '#';
+                  link.href = url;
                   link.download = 'FirmFence-v1.0-Windows.exe';
+                  document.body.appendChild(link);
                   link.click();
+                  document.body.removeChild(link);
+                  URL.revokeObjectURL(url);
+                  
                   // Show a toast notification
-                  alert('Download would start here. This is a demo version.');
+                  alert('Demo download started! This is not the actual installer.');
                 }}
               >
                 <Download className="mr-2 h-6 w-6 group-hover:animate-bounce" />
